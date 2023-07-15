@@ -1,2 +1,2 @@
 # Default_Project
-default project repository
+Fork this when you make a new repository.
