@@ -1,4 +1,2 @@
-def test_func(): print("hi")
-
-
-
+def test_func():
+    print("hi")

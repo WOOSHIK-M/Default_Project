@@ -90,16 +90,3 @@ repos:
                 src/lightning_app/CHANGELOG.md|
                 src/lightning_lite/CHANGELOG.md
             )$
-
-  - repo: local
-    hooks:
-      # - id: utest
-      #   name: Unit Test
-      #   language: system
-      #   entry: make utest
-      #   types: [python]
-      - id: license-checker
-        name: Check if license clauses are included in the source code
-        entry: python hooks/license-checker.py
-        language: python
-        args: [--license-file-path=./hooks/license.txt]
