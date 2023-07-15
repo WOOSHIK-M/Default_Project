@@ -6,12 +6,31 @@ all: init format lint
 check: format lint
 
 init:
-	conda env create -f environment.yaml --force
-	${CONDA_ENV_PATH}/bin/python -m pre_commit install -f
+	pip install -U pip
+	poetry install
 
 format:
 	poetry run black .
 	poetry run isort . --skip-gitignore --profile black
 
-pre-commit:
-	${CONDA_ENV_PATH}/bin/python -m pre_commit run
+format-check:
+	poetry run black . --check
+	poetry run isort . --skip-gitignore --profile black --check
+
+tree:
+	tree -I "*data|.pkl|*.png|*.txt|$(shell cat .gitignore | tr -s '\n' '|' )"
+
+
+help:
+	@echo "Usage: make [target]"
+	@echo
+	@echo "Available targets:"
+	@echo "  init:"
+	@echo "    Initialize poetry project"
+	@echo "  format:"
+	@echo "    Format the code"
+	@echo "  tree:"
+	@echo "    Show the directory tree"
+	@echo
+	@echo "  help:"
+	@echo "    Show this help message"
