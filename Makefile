@@ -8,6 +8,7 @@ check: format lint
 init:
 	pip install -U pip
 	poetry install
+	python -m pre_commit run
 
 format:
 	poetry run black .
