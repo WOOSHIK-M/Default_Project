@@ -1,1 +1,0 @@
-def teset_fun(): print("fi")

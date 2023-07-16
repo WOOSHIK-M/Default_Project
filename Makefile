@@ -13,6 +13,8 @@ init:
 	export PATH=$(HOME)/.local/bin:$(PATH)
 
 	poetry install
+	python -m pre_commit install -f
+
 	python -m pre_commit run
 
 format:
