@@ -12,6 +12,7 @@ init:
 
 init-dev:
 	pdm install
+	pre-commit install
 	python3 -m pre_commit run
 
 format:
