@@ -10,6 +10,10 @@ init:
 	pip install pdm
 	pdm init
 
+init-dev:
+	pdm install
+	python3 -m pre_commit run
+
 format:
 	pdm run black .
 	pdm run isort . --skip-gitignore --profile black
@@ -17,6 +21,12 @@ format:
 format-check:
 	pdm run black . --check
 	pdm run isort . --skip-gitignore --profile black --check
+
+pre-commit:
+	python3 -m pre_commit run
+
+pre-commit-all:
+	python3 -m pre_commit run --all-files
 
 tree:
 	tree
