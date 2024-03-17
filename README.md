@@ -1,16 +1,16 @@
 # Default Project Template
 
-Make a poetry project.
-
-### Pre-requisites
-
-1. Type a project name in `project.toml`
-1. Type authors in `project.toml`
+Make a pdm-based project.
 
 ### How to use?
 
 ```bash
-# create conda env or pyenv first
-# it supports the python versions 3.9 or 3.10
+# Implementation is verified in Python 3.11
+
+# init pdm venv
 > make init
+
+# ready to development !
+# blakc, isort, pre-commit will be installed as deafult.
+> make init-dev
 ```

@@ -7,27 +7,29 @@ check: format lint
 
 init:
 	pip install -U pip
+	pip install pdm
+	pdm init
 
-	# install poetry
-	curl -sSL https://install.python-poetry.org | python3 -
-	export PATH=$(HOME)/.local/bin:$(PATH)
-
-	poetry install
-	python -m pre_commit install -f
-
-	python -m pre_commit run
+init-dev:
+	pdm install
+	python3 -m pre_commit run
 
 format:
-	poetry run black .
-	poetry run isort . --skip-gitignore --profile black
+	pdm run black .
+	pdm run isort . --skip-gitignore --profile black
 
 format-check:
-	poetry run black . --check
-	poetry run isort . --skip-gitignore --profile black --check
+	pdm run black . --check
+	pdm run isort . --skip-gitignore --profile black --check
+
+pre-commit:
+	python3 -m pre_commit run
+
+pre-commit-all:
+	python3 -m pre_commit run --all-files
 
 tree:
-	tree -I "*data|.pkl|*.png|*.txt|$(shell cat .gitignore | tr -s '\n' '|' )"
-
+	tree
 
 help:
 	@echo "Usage: make [target]"
