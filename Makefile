@@ -8,7 +8,6 @@ check: format lint
 init:
 	pip install -U pip
 	pip install pdm
-	pdm init
 
 init-dev:
 	pdm install
